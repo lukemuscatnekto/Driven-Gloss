@@ -1,6 +1,5 @@
 import {
   FACEBOOK_URL,
-  HERO_IMAGE_PATH,
   INSTAGRAM_URL,
   PHONE_DISPLAY,
   PHONE_TEL,
@@ -21,9 +20,15 @@ export function Hero() {
       aria-labelledby="hero-heading"
     >
       <div className="absolute inset-0" aria-hidden="true">
-        <div
-          className="hero-background hero-image-scale absolute inset-0"
-          style={{ backgroundImage: `url('${HERO_IMAGE_PATH}')` }}
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          src="/videos/dg-hero-video.mov"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
         />
         <div className="hero-photo-overlay absolute inset-0" />
         <div className="hero-vignette absolute inset-0 md:hidden" />
@@ -31,7 +36,7 @@ export function Hero() {
         <div className="hero-texture absolute inset-0" />
       </div>
 
-      <PageContainer className="relative grid items-end py-12 pb-14 md:items-center md:py-28 lg:grid-cols-[1fr_0.7fr] lg:gap-8 lg:py-32">
+      <PageContainer className="relative z-10 grid items-end py-12 pb-14 md:items-center md:py-28 lg:grid-cols-[1fr_0.7fr] lg:gap-8 lg:py-32">
         <div className="max-w-2xl lg:max-w-none">
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center md:mb-5 md:gap-x-4 md:gap-y-2">
             <span className="inline-flex w-fit items-center border border-pink/30 px-3 py-1 text-[0.65rem] font-semibold tracking-[0.22em] text-pink-light uppercase md:text-xs">
