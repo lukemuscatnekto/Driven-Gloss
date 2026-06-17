@@ -71,8 +71,6 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="mt-2 text-sm text-gray-400 md:mt-3">Packages from €70</p>
-
           <p className="mt-5 hidden max-w-lg text-base leading-relaxed text-white/70 md:mt-6 md:block md:text-lg">
             Professional mobile car detailing brought directly to your location. Interior detailing, exterior
             detailing, and ceramic coatings across Malta.
