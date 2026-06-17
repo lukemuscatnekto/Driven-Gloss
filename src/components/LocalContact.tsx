@@ -1,19 +1,21 @@
 import {
-  BOOKINGS_NOTE,
   INSTAGRAM_HANDLE,
   INSTAGRAM_URL,
-  INSURANCE_NOTE,
   PHONE_DISPLAY_INTL,
   SERVICE_AREA,
   SOCIAL_LINK_PROPS,
   WHATSAPP_URL,
+  getWhatsAppQuickQuoteUrl,
 } from '../constants'
 import { markCtaInteraction } from '../utils/ctaInteraction'
 import { trackLinkClick } from '../utils/tracking'
 import { AnimateIn } from './AnimateIn'
+import { Button } from './Button'
 import { PageContainer } from './PageContainer'
 
 export function LocalContact() {
+  const quoteUrl = getWhatsAppQuickQuoteUrl()
+
   return (
     <section
       className="section-padding-compact border-t border-white/6 bg-surface-secondary"
@@ -57,8 +59,47 @@ export function LocalContact() {
               <span className="font-medium text-white/85">Service area: </span>
               {SERVICE_AREA}
             </p>
-            <p className="text-white/55">{BOOKINGS_NOTE}</p>
-            <p className="text-white/55">{INSURANCE_NOTE}</p>
+            <p>
+              <span className="font-medium text-white/85">Bookings: </span>
+              Open from July
+            </p>
+            <p>
+              <span className="font-medium text-white/85">Mobile detailing: </span>
+              Home, workplace, marina, or preferred location
+            </p>
+          </div>
+
+          <div className="section-content mt-6 max-w-2xl border border-white/10 bg-charcoal/40 p-4 backdrop-blur-sm md:mt-8 md:p-5">
+            <h3 className="text-sm font-semibold tracking-wide text-white uppercase">Ready to get a quote?</h3>
+            <p className="mt-2 text-sm leading-relaxed text-white/65">
+              Send your car model, location, and photos on WhatsApp. We&apos;ll recommend the best package and
+              confirm availability.
+            </p>
+            <div className="mt-4 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
+              <Button
+                href={quoteUrl}
+                variant="primary"
+                size="md"
+                className="w-full min-h-11 sm:w-auto"
+                trackingSource="local-contact-quote"
+                {...SOCIAL_LINK_PROPS}
+              >
+                Get WhatsApp Quote
+              </Button>
+              <Button
+                href={INSTAGRAM_URL}
+                variant="secondary"
+                size="md"
+                className="w-full min-h-11 sm:w-auto"
+                trackingSource="local-contact-follow"
+                {...SOCIAL_LINK_PROPS}
+              >
+                Follow on Instagram
+              </Button>
+            </div>
+            <p className="mt-4 text-xs leading-relaxed text-white/45">
+              Refer a friend and save 15% on your next detail after their booking is completed.
+            </p>
           </div>
         </AnimateIn>
       </PageContainer>

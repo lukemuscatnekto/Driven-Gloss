@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { CAMPAIGN_FLYERS, LAUNCH_OFFERS, LAUNCH_OFFERS_TERMS } from '../campaign'
+import { CAMPAIGN_FLYERS, LAUNCH_OFFERS, LAUNCH_OFFERS_TERMS, LAUNCH_OFFERS_URGENCY } from '../campaign'
 import { SOCIAL_LINK_PROPS } from '../constants'
 import { AnimateIn } from './AnimateIn'
 import { Button } from './Button'
@@ -68,7 +68,8 @@ export function JulyLaunchOffers() {
                     variant={offer.variant === 'pink' ? 'primary' : 'secondary'}
                     size="md"
                     className="btn-mobile-rounded w-full min-h-12 sm:w-auto md:min-h-11"
-                    {...(offer.variant === 'blue' ? SOCIAL_LINK_PROPS : {})}
+                    trackingSource={`launch-offer-${offer.id}`}
+                    {...SOCIAL_LINK_PROPS}
                   >
                     {offer.cta}
                   </Button>
@@ -81,6 +82,9 @@ export function JulyLaunchOffers() {
         <AnimateIn delay={160}>
           <p className="mt-6 max-w-3xl text-xs leading-relaxed text-white/40 md:mt-8 md:text-sm">
             {LAUNCH_OFFERS_TERMS}
+          </p>
+          <p className="mt-2 max-w-3xl text-xs leading-relaxed text-white/50 md:text-sm">
+            {LAUNCH_OFFERS_URGENCY}
           </p>
         </AnimateIn>
 

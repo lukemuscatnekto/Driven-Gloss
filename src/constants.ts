@@ -73,6 +73,16 @@ I can send photos now for a more accurate quote.`
   return `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(message)}`
 }
 
+export function getWhatsAppReferralOfferUrl() {
+  const message = `Hi Driven Gloss, I'd like to ask about the refer-a-friend launch offer.
+My name:
+Friend's name:
+Friend's car/location:
+Please let me know how it works.`
+
+  return `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(message)}`
+}
+
 export const REFERRAL_WHATSAPP_URL = `https://wa.me/?text=${encodeURIComponent(
   'Love Driven Gloss mobile detailing in Malta! Refer a friend and you both save 15% on your next detail. Find out more: https://www.drivengloss.com',
 )}`
