@@ -1,5 +1,7 @@
+import { useEffect, useRef, useState } from 'react'
 import {
   FACEBOOK_URL,
+  HERO_IMAGE_PATH,
   INSTAGRAM_URL,
   PHONE_DISPLAY,
   PHONE_TEL,
@@ -20,22 +22,69 @@ function handleHeroWhatsAppClick() {
 }
 
 export function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [usePosterFallback, setUsePosterFallback] = useState(false)
+
+  useEffect(() => {
+    if (usePosterFallback) return
+
+    const video = videoRef.current
+    if (!video) return
+
+    const showPosterFallback = () => setUsePosterFallback(true)
+
+    const attemptAutoplay = () => {
+      video.muted = true
+      video.defaultMuted = true
+      video.playsInline = true
+      void video.play().catch(showPosterFallback)
+    }
+
+    video.addEventListener('error', showPosterFallback)
+    video.addEventListener('loadeddata', attemptAutoplay)
+    video.addEventListener('canplay', attemptAutoplay)
+
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      attemptAutoplay()
+    }
+
+    return () => {
+      video.removeEventListener('error', showPosterFallback)
+      video.removeEventListener('loadeddata', attemptAutoplay)
+      video.removeEventListener('canplay', attemptAutoplay)
+    }
+  }, [usePosterFallback])
+
   return (
     <section
       className="hero-section relative min-h-[calc(100svh-6.5rem)] overflow-hidden md:min-h-[88svh]"
       aria-labelledby="hero-heading"
     >
       <div className="absolute inset-0" aria-hidden="true">
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          src="/videos/dg-hero-video.mov"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-        />
+        {usePosterFallback ? (
+          <div
+            className="hero-background absolute inset-0"
+            style={{ backgroundImage: `url('${HERO_IMAGE_PATH}')` }}
+          />
+        ) : (
+          <video
+            ref={videoRef}
+            className="hero-video absolute inset-0 h-full w-full object-cover"
+            src="/videos/dg-hero-video.mov"
+            poster={HERO_IMAGE_PATH}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            controls={false}
+            disablePictureInPicture
+            disableRemotePlayback
+            tabIndex={-1}
+            aria-hidden="true"
+            onError={() => setUsePosterFallback(true)}
+          />
+        )}
         <div className="hero-photo-overlay absolute inset-0" />
         <div className="hero-vignette absolute inset-0 md:hidden" />
         <div className="hero-bottom-fade absolute inset-x-0 bottom-0 md:hidden" aria-hidden="true" />

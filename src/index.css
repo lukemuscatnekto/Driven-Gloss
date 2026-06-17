@@ -210,6 +210,30 @@
     background-position: 60% center;
   }
 
+  .hero-video {
+    pointer-events: none;
+  }
+
+  .hero-video::-webkit-media-controls {
+    display: none !important;
+  }
+
+  .hero-video::-webkit-media-controls-enclosure {
+    display: none !important;
+  }
+
+  .hero-video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .hero-video::-webkit-media-controls-overlay-play-button {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
   @media (max-width: 767px) {
     .hero-background {
       background-position: 70% 68%;
