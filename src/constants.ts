@@ -17,9 +17,9 @@ export const WHATSAPP_URL = WHATSAPP_BASE_URL
 export const WHATSAPP_AVAILABILITY_URL = WHATSAPP_BASE_URL
 
 export const QUOTE_SERVICE_OPTIONS = [
-  'Mini Detail – €35',
-  'Full Detail – €55',
-  'Deep Detail – €90',
+  'Mini Detail – Starting from €35',
+  'Full Detail – Starting from €55',
+  'Deep Detail – Starting from €90',
   'Ceramic protection',
   'Not sure yet',
 ] as const
@@ -31,7 +31,7 @@ export function getWhatsAppServiceUrl(_serviceTitle?: string) {
 export function getWhatsAppPackageUrl(packageName: string, price: string) {
   const message = `Hi Driven Gloss, I'd like to book a package.
 Package:
-${packageName} – ${price}
+${packageName} – Starting from ${price}
 Car:
 Location:
 Preferred date/time:

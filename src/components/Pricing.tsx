@@ -81,7 +81,10 @@ export function Pricing() {
                   <h3 className="text-base font-semibold tracking-wide text-white uppercase md:text-lg">
                     {pkg.name}
                   </h3>
-                  <p className="font-display mt-2 text-[2.5rem] font-bold tracking-tight text-pink-light md:text-4xl">
+                  <p className="mt-2 text-[0.65rem] font-medium tracking-[0.12em] text-white/45 uppercase">
+                    Starting from
+                  </p>
+                  <p className="font-display text-[2.5rem] font-bold tracking-tight text-pink-light md:text-4xl">
                     {pkg.price}
                   </p>
                   <ul className="mt-4 flex-1 space-y-2.5">
@@ -147,8 +150,8 @@ export function Pricing() {
         </AnimateIn>
 
         <p className="mt-6 max-w-3xl text-xs leading-relaxed text-white/40 md:mt-8">
-          Prices may vary depending on vehicle size, condition, and location. Send photos on WhatsApp for the most
-          accurate quote.
+          Prices are starting prices and may vary depending on vehicle size, condition, and location. Send photos on
+          WhatsApp for the most accurate quote.
         </p>
       </PageContainer>
     </section>
