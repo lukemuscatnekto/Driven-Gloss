@@ -63,6 +63,16 @@ I can send photos now for a more accurate quote.`
   return `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(message)}`
 }
 
+export function getWhatsAppQuickQuoteUrl() {
+  const message = `Hi Driven Gloss, I'd like a quote.
+Car:
+Location:
+Service needed:
+I can send photos now for a more accurate quote.`
+
+  return `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(message)}`
+}
+
 export const REFERRAL_WHATSAPP_URL = `https://wa.me/?text=${encodeURIComponent(
   'Love Driven Gloss mobile detailing in Malta! Refer a friend and you both save 15% on your next detail. Find out more: https://www.drivengloss.com',
 )}`
