@@ -90,6 +90,20 @@ export function Footer() {
           Back to top
         </a>
       </PageContainer>
+
+      <PageContainer className="mt-2 pt-1">
+        <p className="text-[0.65rem] leading-relaxed text-white/30">
+          Designed & built by{' '}
+          <a
+            href="https://form-and-signal.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium tracking-[0.14em] text-white/45 uppercase transition-colors hover:text-white/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-light"
+          >
+            FORM & SIGNAL
+          </a>
+        </p>
+      </PageContainer>
     </footer>
   )
 }
