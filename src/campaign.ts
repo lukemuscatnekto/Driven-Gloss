@@ -1,7 +1,7 @@
 import { INSTAGRAM_URL } from './constants'
 
 export const LAUNCH_OFFERS_TERMS =
-  'Offers valid on services over €70. One promotion per booking. Referral discount applies after the completed referred booking. Limited launch offer. Terms and conditions apply.'
+  'Launch offers apply to Full Detail, Deep Detail, and selected add-on services. One offer per booking. Referral discount is applied after the referred booking is completed.'
 
 export const CAMPAIGN_FLYERS = [
   {
@@ -24,7 +24,7 @@ export const LAUNCH_OFFERS = [
     label: 'First Booking',
     accent: '10% Off',
     heading: 'Your First Wash',
-    copy: 'Get 10% off your first booking when you mention the launch offer.',
+    copy: 'Get 10% off your first booking on services from €55 when you mention the launch offer.',
     cta: 'Call 7944 0999',
     href: 'tel:79440999',
     variant: 'pink' as const,
