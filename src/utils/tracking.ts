@@ -18,6 +18,11 @@ function trackMetaContact() {
   window.fbq('track', 'Contact')
 }
 
+export function trackQuoteFormSubmit(source?: string) {
+  trackGaEvent('quote_form_submit', source ? { event_label: source } : undefined)
+  trackMetaContact()
+}
+
 export function trackWhatsAppClick(source?: string) {
   trackGaEvent('whatsapp_click', source ? { event_label: source } : undefined)
   trackMetaContact()

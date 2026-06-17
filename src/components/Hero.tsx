@@ -12,7 +12,7 @@ import { Button } from './Button'
 import { HeroMobileCTA } from './HeroMobileCTA'
 import { PageContainer } from './PageContainer'
 import { TextLink } from './TextLink'
-import { WaitlistForm } from './WaitlistForm'
+import { QuoteForm } from './QuoteForm'
 import { markCtaInteraction } from '../utils/ctaInteraction'
 import { trackLinkClick } from '../utils/tracking'
 
@@ -167,10 +167,7 @@ export function Hero() {
             </div>
           </div>
 
-          <WaitlistForm
-            source="hero-waitlist"
-            className="mt-4 max-w-md border border-white/10 bg-charcoal/40 p-4 backdrop-blur-sm md:mt-5"
-          />
+          <QuoteForm className="mt-4 max-w-md border border-white/10 bg-charcoal/40 p-4 backdrop-blur-sm md:mt-5" />
 
           <div className="mt-4 hidden md:block">
             <TextLink href={FACEBOOK_URL} {...SOCIAL_LINK_PROPS}>

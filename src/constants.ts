@@ -16,8 +16,29 @@ export const WHATSAPP_BASE_URL = 'https://wa.me/35679440999'
 export const WHATSAPP_URL = WHATSAPP_BASE_URL
 export const WHATSAPP_AVAILABILITY_URL = WHATSAPP_BASE_URL
 
+export const QUOTE_SERVICE_OPTIONS = [
+  'Exterior wash',
+  'Interior clean',
+  'Full detail',
+  'Ceramic protection',
+  'Not sure yet',
+] as const
+
 export function getWhatsAppServiceUrl(_serviceTitle?: string) {
   return WHATSAPP_BASE_URL
+}
+
+export function getWhatsAppQuoteUrl(car: string, location: string, service: string) {
+  const message = `Hi Driven Gloss, I'd like a free quote.
+Car:
+${car}
+Location:
+${location}
+Service needed:
+${service}
+I can send photos now for a more accurate quote.`
+
+  return `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(message)}`
 }
 
 export const REFERRAL_WHATSAPP_URL = `https://wa.me/?text=${encodeURIComponent(
