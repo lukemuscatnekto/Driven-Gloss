@@ -20,9 +20,6 @@ export const QUOTE_SERVICE_OPTIONS = [
   'Mini Detail – €35',
   'Full Detail – €55',
   'Deep Detail – €90',
-  'Exterior wash',
-  'Interior clean',
-  'Exterior wash + Interior clean',
   'Ceramic protection',
   'Not sure yet',
 ] as const
