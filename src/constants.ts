@@ -19,6 +19,7 @@ export const WHATSAPP_AVAILABILITY_URL = WHATSAPP_BASE_URL
 export const QUOTE_SERVICE_OPTIONS = [
   'Exterior wash',
   'Interior clean',
+  'Exterior wash + Interior clean',
   'Full detail',
   'Ceramic protection',
   'Not sure yet',
