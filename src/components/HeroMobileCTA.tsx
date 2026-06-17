@@ -1,11 +1,17 @@
 import { PHONE_DISPLAY, PHONE_TEL } from '../constants'
 import { markCtaInteraction } from '../utils/ctaInteraction'
+import { trackLinkClick } from '../utils/tracking'
 
 export function HeroMobileCTA() {
+  const handleClick = () => {
+    markCtaInteraction()
+    trackLinkClick(PHONE_TEL, { heroCta: true, source: 'hero-mobile-call' })
+  }
+
   return (
     <a
       href={PHONE_TEL}
-      onClick={markCtaInteraction}
+      onClick={handleClick}
       className="hero-mobile-cta group flex min-h-[58px] w-full items-center justify-between gap-3 rounded-xl bg-pink px-4 py-3 transition-colors hover:bg-pink-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-light md:hidden"
     >
       <span className="flex items-center gap-3">

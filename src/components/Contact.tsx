@@ -25,7 +25,7 @@ export function Contact() {
 
         <AnimateIn delay={80}>
           <div className="flex flex-col gap-2.5 md:items-stretch lg:max-w-sm lg:ml-auto">
-            <Button href={PHONE_TEL} variant="primary" size="lg" className="btn-mobile-rounded w-full md:rounded-sm">
+            <Button href={PHONE_TEL} variant="primary" size="lg" className="btn-mobile-rounded w-full md:rounded-sm" trackingSource="contact-call">
               Call {PHONE_DISPLAY}
             </Button>
             <Button
@@ -33,6 +33,7 @@ export function Contact() {
               variant="secondary"
               size="lg"
               className="btn-mobile-rounded w-full md:rounded-sm"
+              trackingSource="contact-instagram"
               {...SOCIAL_LINK_PROPS}
             >
               Message on Instagram

@@ -1,5 +1,6 @@
 import type { AnchorHTMLAttributes, MouseEvent, ReactNode } from 'react'
 import { markCtaInteraction } from '../utils/ctaInteraction'
+import { trackLinkClick } from '../utils/tracking'
 
 type ButtonVariant = 'primary' | 'secondary' | 'outline-pink'
 
@@ -7,6 +8,8 @@ type ButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode
   variant?: ButtonVariant
   size?: 'sm' | 'md' | 'lg'
+  heroCta?: boolean
+  trackingSource?: string
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
@@ -27,10 +30,16 @@ export function Button({
   size = 'md',
   className = '',
   onClick,
+  href,
+  heroCta = false,
+  trackingSource,
   ...props
 }: ButtonProps) {
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
     markCtaInteraction()
+    if (typeof href === 'string') {
+      trackLinkClick(href, { heroCta, source: trackingSource })
+    }
     onClick?.(event)
   }
 
@@ -38,6 +47,7 @@ export function Button({
     <a
       className={`btn inline-flex items-center justify-center rounded-sm font-medium uppercase transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-light ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
       onClick={handleClick}
+      href={href}
       {...props}
     >
       {children}

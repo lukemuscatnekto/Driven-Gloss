@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
-import { SOCIAL_LINK_PROPS, getWhatsAppServiceUrl } from '../constants'
+import { SOCIAL_LINK_PROPS, WHATSAPP_URL, getWhatsAppServiceUrl } from '../constants'
 import { markCtaInteraction } from '../utils/ctaInteraction'
+import { trackLinkClick } from '../utils/tracking'
 
 type ServiceModalProps = {
   title: string
@@ -69,10 +70,13 @@ export function ServiceModal({
         <a
           href={getWhatsAppServiceUrl(title)}
           {...SOCIAL_LINK_PROPS}
-          onClick={markCtaInteraction}
+          onClick={() => {
+            markCtaInteraction()
+            trackLinkClick(WHATSAPP_URL, { source: `service-${title}` })
+          }}
           className="btn-mobile-rounded mt-6 inline-flex min-h-11 w-full items-center justify-center bg-blue text-sm font-semibold tracking-[0.08em] text-charcoal uppercase transition-colors hover:bg-blue-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-light md:rounded-sm"
         >
-          Book This Service — WhatsApp
+          Book on WhatsApp
         </a>
       </div>
     </div>

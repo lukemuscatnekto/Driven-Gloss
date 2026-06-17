@@ -3,22 +3,21 @@ export const PHONE_DISPLAY_INTL = '+356 7944 0999'
 export const PHONE_TEL = 'tel:79440999'
 export const PHONE_TEL_INTL = 'tel:+35679440999'
 export const INSTAGRAM_HANDLE = '@drivengloss.detailing'
-export const INSTAGRAM_URL = 'https://www.instagram.com/drivengloss.detailing/'
+export const INSTAGRAM_URL = 'https://www.instagram.com/drivengloss.detailing'
 export const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61563137240263'
 export const SITE_URL = 'https://www.drivengloss.com'
-export const SITE_DESCRIPTION = 'Premium mobile car detailing in Malta'
-export const SERVICE_AREA =
-  "Serving all of Malta — St Paul's Bay, Sliema, Valletta, and beyond"
+export const SITE_DESCRIPTION =
+  'Mobile car detailing in Malta. Interior detailing, exterior detailing, ceramic coatings and protection services delivered to your door. Bookings open from July.'
+export const SERVICE_AREA = 'Malta'
+export const BOOKINGS_NOTE = 'Bookings open from July'
 export const INSURANCE_NOTE = 'Fully insured & water-conscious detailing'
 
-export const WHATSAPP_URL =
-  'https://wa.me/35679440999?text=Hi%20Driven%20Gloss%2C%20I%27d%20like%20to%20book%20a%20detail'
-export const WHATSAPP_AVAILABILITY_URL =
-  'https://wa.me/35679440999?text=Hi%20Driven%20Gloss%2C%20I%27d%20like%20to%20check%20availability'
+export const WHATSAPP_BASE_URL = 'https://wa.me/35679440999'
+export const WHATSAPP_URL = WHATSAPP_BASE_URL
+export const WHATSAPP_AVAILABILITY_URL = WHATSAPP_BASE_URL
 
-export function getWhatsAppServiceUrl(serviceTitle: string) {
-  const text = encodeURIComponent(`Hi Driven Gloss, I'd like to book ${serviceTitle}`)
-  return `https://wa.me/35679440999?text=${text}`
+export function getWhatsAppServiceUrl(_serviceTitle?: string) {
+  return WHATSAPP_BASE_URL
 }
 
 export const REFERRAL_WHATSAPP_URL = `https://wa.me/?text=${encodeURIComponent(

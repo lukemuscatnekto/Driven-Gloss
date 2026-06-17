@@ -1,4 +1,6 @@
 import { FACEBOOK_URL, INSTAGRAM_URL, SOCIAL_LINK_PROPS } from '../constants'
+import { markCtaInteraction } from '../utils/ctaInteraction'
+import { trackLinkClick } from '../utils/tracking'
 
 type IconSize = 'sm' | 'md' | 'lg'
 
@@ -42,6 +44,10 @@ export function InstagramIconLink({ size = 'md', className = '' }: Omit<SocialIc
     <a
       href={INSTAGRAM_URL}
       {...SOCIAL_LINK_PROPS}
+      onClick={() => {
+        markCtaInteraction()
+        trackLinkClick(INSTAGRAM_URL, { source: 'instagram-icon' })
+      }}
       aria-label="Follow Driven Gloss on Instagram"
       className={`inline-flex items-center justify-center text-white/55 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-light ${buttonSizeMap[size]} ${className}`}
     >

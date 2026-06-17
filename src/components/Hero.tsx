@@ -12,6 +12,12 @@ import { PageContainer } from './PageContainer'
 import { TextLink } from './TextLink'
 import { WaitlistForm } from './WaitlistForm'
 import { markCtaInteraction } from '../utils/ctaInteraction'
+import { trackLinkClick } from '../utils/tracking'
+
+function handleHeroWhatsAppClick() {
+  markCtaInteraction()
+  trackLinkClick(WHATSAPP_AVAILABILITY_URL, { heroCta: true, source: 'hero-availability' })
+}
 
 export function Hero() {
   return (
@@ -45,10 +51,10 @@ export function Hero() {
             <a
               href={WHATSAPP_AVAILABILITY_URL}
               {...SOCIAL_LINK_PROPS}
-              onClick={markCtaInteraction}
+              onClick={handleHeroWhatsAppClick}
               className="inline-flex min-h-10 w-fit items-center justify-center border border-blue bg-blue px-3 py-2 text-[0.65rem] font-semibold tracking-[0.12em] text-charcoal uppercase transition-colors hover:bg-blue-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-light md:text-xs"
             >
-              Check Availability — WhatsApp
+              Check July Availability
             </a>
           </div>
 
@@ -88,7 +94,14 @@ export function Hero() {
           <div className="mt-4 md:mt-9">
             <HeroMobileCTA />
             <div className="hidden flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center md:flex">
-              <Button href={PHONE_TEL} variant="primary" size="lg" className="w-full sm:w-auto">
+              <Button
+                href={PHONE_TEL}
+                variant="primary"
+                size="lg"
+                className="w-full sm:w-auto"
+                heroCta
+                trackingSource="hero-call"
+              >
                 Call {PHONE_DISPLAY}
               </Button>
               <Button
@@ -96,6 +109,8 @@ export function Hero() {
                 variant="secondary"
                 size="lg"
                 className="w-full sm:w-auto"
+                heroCta
+                trackingSource="hero-instagram"
                 {...SOCIAL_LINK_PROPS}
               >
                 Follow on Instagram

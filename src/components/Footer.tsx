@@ -1,5 +1,16 @@
-import { INSTAGRAM_HANDLE, INSTAGRAM_URL, FACEBOOK_URL, PHONE_DISPLAY, PHONE_TEL, REFERRAL_WHATSAPP_URL, SOCIAL_LINK_PROPS } from '../constants'
+import {
+  BOOKINGS_NOTE,
+  FACEBOOK_URL,
+  INSTAGRAM_HANDLE,
+  INSTAGRAM_URL,
+  PHONE_DISPLAY_INTL,
+  REFERRAL_WHATSAPP_URL,
+  SERVICE_AREA,
+  SOCIAL_LINK_PROPS,
+  WHATSAPP_URL,
+} from '../constants'
 import { markCtaInteraction } from '../utils/ctaInteraction'
+import { trackLinkClick } from '../utils/tracking'
 import { Logo } from './Logo'
 import { PageContainer } from './PageContainer'
 import { SocialIconRow } from './SocialIcons'
@@ -17,18 +28,29 @@ export function Footer() {
 
         <div className="flex flex-col gap-0.5 text-sm text-white/65 md:gap-2">
           <a
-            href={PHONE_TEL}
+            href={WHATSAPP_URL}
+            {...SOCIAL_LINK_PROPS}
+            onClick={() => {
+              markCtaInteraction()
+              trackLinkClick(WHATSAPP_URL, { source: 'footer-whatsapp' })
+            }}
             className="min-h-11 py-1 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-light"
           >
-            {PHONE_DISPLAY}
+            WhatsApp: {PHONE_DISPLAY_INTL}
           </a>
           <a
             href={INSTAGRAM_URL}
             {...SOCIAL_LINK_PROPS}
+            onClick={() => {
+              markCtaInteraction()
+              trackLinkClick(INSTAGRAM_URL, { source: 'footer-instagram' })
+            }}
             className="min-h-11 py-1 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-light"
           >
-            {INSTAGRAM_HANDLE}
+            Instagram: {INSTAGRAM_HANDLE}
           </a>
+          <p className="min-h-11 py-1">Service area: {SERVICE_AREA}</p>
+          <p className="py-1 text-white/55">{BOOKINGS_NOTE}</p>
           <a
             href={FACEBOOK_URL}
             {...SOCIAL_LINK_PROPS}
@@ -49,7 +71,10 @@ export function Footer() {
         <a
           href={REFERRAL_WHATSAPP_URL}
           {...SOCIAL_LINK_PROPS}
-          onClick={markCtaInteraction}
+          onClick={() => {
+            markCtaInteraction()
+            trackLinkClick(REFERRAL_WHATSAPP_URL, { source: 'footer-referral-share' })
+          }}
           className="mt-3 inline-flex min-h-11 items-center rounded-sm border border-white/15 bg-charcoal-light px-4 text-xs font-semibold tracking-[0.1em] text-white uppercase transition-colors hover:border-white/30 hover:bg-charcoal-mid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-light"
         >
           Share on WhatsApp
