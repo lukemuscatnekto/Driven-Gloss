@@ -7,6 +7,7 @@ import { JulyLaunchOffers } from './components/JulyLaunchOffers'
 import { Launch } from './components/Launch'
 import { LocalContact } from './components/LocalContact'
 import { Navbar } from './components/Navbar'
+import { Pricing } from './components/Pricing'
 import { ScrollLeadModal } from './components/ScrollLeadModal'
 import { Services } from './components/Services'
 import { StickyMobileCTA } from './components/StickyMobileCTA'
@@ -22,6 +23,7 @@ export default function App() {
       <main>
         <Hero />
         <Services />
+        <Pricing />
         <WhyDrivenGloss />
         <VisualBreak />
         <HowItWorks />
