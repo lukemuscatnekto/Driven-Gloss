@@ -55,11 +55,11 @@ export const PRICING_PACKAGES: PricingPackage[] = [
 export const EXTRA_SERVICES = [
   { name: 'Seat Shampoo', price: '€10 per seat' },
   { name: 'Carpet & Mat Shampoo', price: '€20' },
-  { name: 'Pet Hair Removal', price: '€15' },
+  { name: 'Pet Hair Removal', price: 'Starting from €15' },
   { name: 'Engine Bay Clean', price: '€25' },
   { name: 'Headlight Restoration', price: '€30' },
-  { name: 'Clay Bar + Wax Protection', price: '€35' },
-  { name: 'Ceramic Spray Protection', price: '€25' },
+  { name: 'Clay Bar + Wax Protection', price: 'Starting from €35' },
+  { name: 'Ceramic Spray Protection', price: '€20' },
   { name: 'Glass Water Repellent', price: '€15' },
   { name: 'Odour Treatment', price: '€20' },
 ] as const
