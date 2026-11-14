@@ -68,7 +68,7 @@ export function ServiceModal({
         </h3>
         <p className="mt-3 text-sm leading-relaxed text-white/65">{description}</p>
         <a
-          href={getWhatsAppServiceUrl(title)}
+          href={getWhatsAppServiceUrl()}
           {...SOCIAL_LINK_PROPS}
           onClick={() => {
             markCtaInteraction()

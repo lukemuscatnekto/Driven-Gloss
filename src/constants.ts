@@ -7,9 +7,8 @@ export const INSTAGRAM_URL = 'https://www.instagram.com/drivengloss.detailing'
 export const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61563137240263'
 export const SITE_URL = 'https://www.drivengloss.com'
 export const SITE_DESCRIPTION =
-  'Mobile car detailing in Malta. Interior detailing, exterior detailing, ceramic coatings and protection services delivered to your door. Bookings open from July.'
+  'Mobile car detailing in Malta. Interior detailing, exterior detailing, ceramic coatings and protection services delivered to your door.'
 export const SERVICE_AREA = 'Malta'
-export const BOOKINGS_NOTE = 'Bookings open from July'
 export const INSURANCE_NOTE = 'Fully insured & water-conscious detailing'
 
 export const WHATSAPP_BASE_URL = 'https://wa.me/35679440999'
@@ -24,7 +23,7 @@ export const QUOTE_SERVICE_OPTIONS = [
   'Not sure yet',
 ] as const
 
-export function getWhatsAppServiceUrl(_serviceTitle?: string) {
+export function getWhatsAppServiceUrl() {
   return WHATSAPP_BASE_URL
 }
 
@@ -73,27 +72,13 @@ I can send photos now for a more accurate quote.`
   return `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(message)}`
 }
 
-export function getWhatsAppReferralOfferUrl() {
-  const message = `Hi Driven Gloss, I'd like to ask about the refer-a-friend launch offer.
-My name:
-Friend's name:
-Friend's car/location:
-Please let me know how it works.`
-
-  return `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(message)}`
-}
-
-export const REFERRAL_WHATSAPP_URL = `https://wa.me/?text=${encodeURIComponent(
-  'Love Driven Gloss mobile detailing in Malta! Refer a friend and you both save 15% on your next detail. Find out more: https://www.drivengloss.com',
-)}`
-
 export const SOCIAL_LINK_PROPS = {
   target: '_blank' as const,
   rel: 'noopener noreferrer',
 }
 
-export const LOGO_NAV_PATH = '/assets/driven-gloss-logo-512.png'
-export const LOGO_FOOTER_PATH = '/assets/driven-gloss-logo.png'
+export const LOGO_NAV_PATH = '/assets/driven-gloss-logo-nav.webp'
+export const LOGO_FOOTER_PATH = '/assets/driven-gloss-logo-footer.webp'
 export const HERO_IMAGE_PATH = '/assets/hero-main-v2.webp'
 export const FAVICON_PATH = '/assets/driven-gloss-icon-192.png'
 export const OG_IMAGE_PATH = '/assets/hero-main-v2.webp'

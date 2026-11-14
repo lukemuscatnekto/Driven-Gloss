@@ -70,13 +70,13 @@ export function Hero() {
           <video
             ref={videoRef}
             className="hero-video absolute inset-0 h-full w-full object-cover"
-            src="/videos/dg-hero-video.mov"
+            src="/videos/dg-hero-video.mp4"
             poster={HERO_IMAGE_PATH}
             autoPlay
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             controls={false}
             disablePictureInPicture
             disableRemotePlayback
@@ -95,7 +95,7 @@ export function Hero() {
         <div className="max-w-2xl lg:max-w-none">
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center md:mb-5 md:gap-x-4 md:gap-y-2">
             <span className="inline-flex w-fit items-center border border-pink/30 px-3 py-1 text-[0.65rem] font-semibold tracking-[0.22em] text-pink-light uppercase md:text-xs">
-              Launching July 2026
+              Mobile Detailing Across Malta
             </span>
             <a
               href={WHATSAPP_AVAILABILITY_URL}
@@ -103,7 +103,7 @@ export function Hero() {
               onClick={handleHeroWhatsAppClick}
               className="inline-flex min-h-10 w-fit items-center justify-center border border-blue bg-blue px-3 py-2 text-[0.65rem] font-semibold tracking-[0.12em] text-charcoal uppercase transition-colors hover:bg-blue-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-light md:text-xs"
             >
-              Check July Availability
+              Check Availability
             </a>
           </div>
 

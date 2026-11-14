@@ -60,10 +60,6 @@ export function LocalContact() {
               {SERVICE_AREA}
             </p>
             <p>
-              <span className="font-medium text-white/85">Bookings: </span>
-              Open from July
-            </p>
-            <p>
               <span className="font-medium text-white/85">Mobile detailing: </span>
               Home, workplace, marina, or preferred location
             </p>
@@ -97,9 +93,6 @@ export function LocalContact() {
                 Follow on Instagram
               </Button>
             </div>
-            <p className="mt-4 text-xs leading-relaxed text-white/45">
-              Refer a friend and save 15% on your next detail after their booking is completed.
-            </p>
           </div>
         </AnimateIn>
       </PageContainer>

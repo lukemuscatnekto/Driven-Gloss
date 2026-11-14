@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { PHONE_TEL } from '../constants'
+import { showGallerySection, showReviewsSection } from '../content'
 import { useActiveSection } from '../hooks/useActiveSection'
 import { Button } from './Button'
 import { Logo } from './Logo'
@@ -9,17 +10,13 @@ import { SocialIconRow } from './SocialIcons'
 
 const navLinks = [
   { label: 'Services', href: '#services', id: 'services' },
+  ...(showGallerySection ? [{ label: 'Results', href: '#results', id: 'results' }] : []),
   { label: 'How It Works', href: '#how-it-works', id: 'how-it-works' },
-  { label: 'Launch', href: '#launch', id: 'launch' },
+  ...(showReviewsSection ? [{ label: 'Reviews', href: '#reviews', id: 'reviews' }] : []),
   { label: 'Contact', href: '#contact', id: 'contact' },
 ]
 
-const observedSections = [
-  { id: 'services', elements: ['#services'] },
-  { id: 'how-it-works', elements: ['#how-it-works'] },
-  { id: 'launch', elements: ['#launch-offers', '#launch'] },
-  { id: 'contact', elements: ['#contact'] },
-]
+const observedSections = navLinks.map((link) => ({ id: link.id, elements: [link.href] }))
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)

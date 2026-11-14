@@ -1,10 +1,8 @@
 import {
-  BOOKINGS_NOTE,
   FACEBOOK_URL,
   INSTAGRAM_HANDLE,
   INSTAGRAM_URL,
   PHONE_DISPLAY_INTL,
-  REFERRAL_WHATSAPP_URL,
   SERVICE_AREA,
   SOCIAL_LINK_PROPS,
   WHATSAPP_URL,
@@ -50,7 +48,6 @@ export function Footer() {
             Instagram: {INSTAGRAM_HANDLE}
           </a>
           <p className="min-h-11 py-1">Service area: {SERVICE_AREA}</p>
-          <p className="py-1 text-white/55">{BOOKINGS_NOTE}</p>
           <a
             href={FACEBOOK_URL}
             {...SOCIAL_LINK_PROPS}
@@ -62,23 +59,6 @@ export function Footer() {
             <SocialIconRow size="sm" />
           </div>
         </div>
-      </PageContainer>
-
-      <PageContainer className="mt-4 border-t border-white/6 pt-4">
-        <p className="text-sm leading-relaxed text-white/65">
-          Love Driven Gloss? Refer a friend and you both save 15%.
-        </p>
-        <a
-          href={REFERRAL_WHATSAPP_URL}
-          {...SOCIAL_LINK_PROPS}
-          onClick={() => {
-            markCtaInteraction()
-            trackLinkClick(REFERRAL_WHATSAPP_URL, { source: 'footer-referral-share' })
-          }}
-          className="mt-3 inline-flex min-h-11 items-center rounded-sm border border-white/15 bg-charcoal-light px-4 text-xs font-semibold tracking-[0.1em] text-white uppercase transition-colors hover:border-white/30 hover:bg-charcoal-mid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-light"
-        >
-          Share on WhatsApp
-        </a>
       </PageContainer>
 
       <PageContainer className="mt-4 flex flex-col gap-1 border-t border-white/6 pt-4 text-xs text-white/35 md:mt-6 md:flex-row md:items-center md:justify-between md:gap-2 md:pt-5">

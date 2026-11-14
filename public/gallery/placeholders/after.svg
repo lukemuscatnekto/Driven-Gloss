@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200" role="img" aria-label="Placeholder: AFTER PHOTO">
+  <rect width="1600" height="1200" fill="#14161b"/>
+  <rect x="40" y="40" width="1520" height="1120" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="4" stroke-dasharray="24 18"/>
+  <text x="50%" y="46%" text-anchor="middle" font-family="system-ui, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="10" fill="#ffffff" fill-opacity="0.75">PLACEHOLDER</text>
+  <text x="50%" y="54%" text-anchor="middle" font-family="system-ui, Arial, sans-serif" font-size="44" letter-spacing="6" fill="#ffffff" fill-opacity="0.55">AFTER PHOTO</text>
+  <text x="50%" y="61%" text-anchor="middle" font-family="system-ui, Arial, sans-serif" font-size="30" fill="#ffffff" fill-opacity="0.4">Replace with a real Driven Gloss photo</text>
+</svg>

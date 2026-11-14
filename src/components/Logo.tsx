@@ -40,8 +40,8 @@ export function Logo({ className = '', variant = 'nav' }: LogoProps) {
         <img
           src={src}
           alt={LOGO_ALT}
-          width={512}
-          height={512}
+          width={144}
+          height={144}
           className={`${badgeHeight} w-auto shrink-0 object-contain`}
           onError={() => setImageFailed(true)}
         />
@@ -64,6 +64,8 @@ export function Logo({ className = '', variant = 'nav' }: LogoProps) {
     <img
       src={src}
       alt={LOGO_FOOTER_ALT}
+      width={400}
+      height={400}
       loading="lazy"
       decoding="async"
       className={`h-auto w-auto max-w-[142px] object-contain md:max-w-[200px] ${className}`}

@@ -94,8 +94,8 @@
     #services,
     #pricing,
     #how-it-works,
-    #launch-offers,
-    #launch,
+    #results,
+    #reviews,
     #contact {
       scroll-margin-top: 4.25rem;
     }
@@ -427,17 +427,66 @@
     @apply leading-[1.6] md:leading-relaxed;
   }
 
-  .campaign-flyers-scroll {
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+  /* Before & after gallery */
+  .compare-frame {
+    @apply relative aspect-[4/3] w-full cursor-ew-resize overflow-hidden border border-white/8 bg-charcoal-light select-none;
+    touch-action: pan-y;
   }
 
-  .campaign-flyers-scroll::-webkit-scrollbar {
-    display: none;
+  .gallery-video-frame {
+    @apply relative w-full overflow-hidden border border-white/8 bg-black;
   }
 
-  .campaign-scroll-card {
-    @apply w-[82vw] max-w-[330px] shrink-0 snap-start md:w-auto md:max-w-none md:shrink;
+  .review-card {
+    @apply border border-white/8 bg-surface-secondary p-5 md:p-6;
+  }
+
+  @media (max-width: 767px) {
+    .compare-frame,
+    .gallery-video-frame,
+    .review-card {
+      border-radius: 12px;
+    }
+  }
+
+  .compare-image {
+    @apply pointer-events-none absolute inset-0 h-full w-full object-cover;
+  }
+
+  .compare-tag {
+    @apply pointer-events-none absolute top-3 bg-charcoal/80 px-2.5 py-1 text-[0.6rem] font-semibold tracking-[0.2em] text-white uppercase backdrop-blur-sm md:text-[0.65rem];
+  }
+
+  .compare-tag-after {
+    @apply bg-pink text-white;
+  }
+
+  .compare-handle {
+    @apply absolute inset-y-0 w-11 -translate-x-1/2 cursor-ew-resize;
+  }
+
+  .compare-handle::before {
+    content: '';
+    @apply absolute inset-y-0 left-1/2 w-0.5 -translate-x-1/2 bg-white;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
+  }
+
+  .compare-handle-grip {
+    @apply absolute top-1/2 left-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-charcoal transition-transform duration-200;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+  }
+
+  .compare-frame:hover .compare-handle-grip,
+  .compare-frame-dragging .compare-handle-grip {
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+
+  .compare-handle:focus-visible {
+    outline: none;
+  }
+
+  .compare-handle:focus-visible .compare-handle-grip {
+    @apply outline-2 outline-offset-2 outline-blue-light;
   }
 
   .service-preview-scroll {
@@ -481,21 +530,6 @@
       border-top-color: rgba(18, 184, 255, 0.32);
     }
 
-    .campaign-thumb-frame {
-      border-radius: 12px;
-    }
-
-    .campaign-thumb-overlay {
-      opacity: 0.72;
-      background: rgba(10, 11, 13, 0.42);
-    }
-
-    .campaign-thumb:active .campaign-thumb-overlay,
-    .campaign-thumb:focus-visible .campaign-thumb-overlay {
-      opacity: 1;
-      background: rgba(10, 11, 13, 0.35);
-    }
-
     .benefit-row:active {
       opacity: 0.88;
     }
@@ -515,79 +549,7 @@
     border-top: 1px solid rgba(18, 184, 255, 0.3);
   }
 
-  .campaign-thumb-frame {
-    @apply relative overflow-hidden border border-white/10 bg-surface-secondary transition-[border-color,transform] duration-200;
-  }
-
-  .campaign-thumb:hover .campaign-thumb-frame,
-  .campaign-thumb:focus-visible .campaign-thumb-frame {
-    @apply border-white/25;
-    transform: scale(1.03);
-  }
-
-  .campaign-thumb-image-wrap {
-    @apply relative aspect-[3/4] overflow-hidden;
-  }
-
-  .campaign-thumb-skeleton {
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.04) 0%,
-      rgba(255, 255, 255, 0.1) 50%,
-      rgba(255, 255, 255, 0.04) 100%
-    );
-    background-size: 200% 100%;
-    animation: campaign-skeleton 1.4s ease-in-out infinite;
-  }
-
-  @keyframes campaign-skeleton {
-    0% {
-      background-position: 200% 0;
-    }
-
-    100% {
-      background-position: -200% 0;
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .campaign-thumb-skeleton {
-      animation: none;
-      background: rgba(255, 255, 255, 0.06);
-    }
-  }
-
-  .campaign-thumb-image {
-    @apply h-full w-full object-contain object-center transition-transform duration-200;
-  }
-
-  .campaign-thumb:hover .campaign-thumb-image,
-  .campaign-thumb:focus-visible .campaign-thumb-image {
-    transform: scale(1.03);
-  }
-
-  .campaign-thumb-overlay {
-    @apply pointer-events-none absolute inset-0 flex items-end bg-charcoal/45 p-3 opacity-0 transition-opacity duration-200;
-  }
-
-  .campaign-thumb:hover .campaign-thumb-overlay,
-  .campaign-thumb:focus-visible .campaign-thumb-overlay {
-    @apply opacity-100;
-    background: rgba(10, 11, 13, 0.35);
-  }
-
-  .campaign-thumb-label {
-    @apply text-[0.6rem] font-medium tracking-[0.18em] text-white/85 uppercase;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .campaign-thumb:hover .campaign-thumb-frame,
-    .campaign-thumb:focus-visible .campaign-thumb-frame,
-    .campaign-thumb:hover .campaign-thumb-image,
-    .campaign-thumb:focus-visible .campaign-thumb-image {
-      transform: none;
-    }
-
     .whatsapp-float {
       animation: none;
     }

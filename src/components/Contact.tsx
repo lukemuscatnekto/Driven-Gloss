@@ -19,7 +19,7 @@ export function Contact() {
           </h2>
           <p className="section-copy mt-3 md:mt-4">
             Tell us your vehicle model, location, and the service you are interested in. We&apos;ll recommend the
-            best package and confirm availability for July.
+            best package and confirm availability.
           </p>
           <p className="mt-2 text-xs tracking-wide text-white/40 uppercase md:mt-4">Mobile detailing across Malta</p>
         </AnimateIn>

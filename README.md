@@ -1,73 +1,57 @@
-# React + TypeScript + Vite
+# Driven Gloss website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Single-page website for Driven Gloss mobile car detailing (Malta).
+Built with React, TypeScript, Vite and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Running it
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev      # local preview at http://localhost:5173
+npm run build    # production build into dist/
+npm run lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Where things live
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| What | File |
+| --- | --- |
+| Phone, WhatsApp, Instagram, Facebook links | `src/constants.ts` |
+| Packages and prices | `src/pricing.ts` |
+| Before & after gallery content | `src/gallery.ts` |
+| Google reviews content | `src/reviews.ts` |
+| Page sections (in display order) | `src/App.tsx` |
+| Colours, fonts, shared styles | `src/index.css` |
+| Search / social preview text | `index.html` |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Placeholders never go live
+
+Gallery items and reviews marked `placeholder: true` are shown only while
+developing (`npm run dev`). On the live site they are hidden, and a section
+with nothing real in it (plus its menu link) is not shown at all. To see
+placeholders in a production build: `VITE_SHOW_PLACEHOLDERS=true npm run build`.
+
+## Adding a before & after project
+
+1. Copy the photos or video into `public/gallery/`
+   (see `public/gallery/README.md` for sizes and formats).
+2. Open `src/gallery.ts` and add an entry to `GALLERY_ITEMS`. Copy one of the
+   commented examples in that file.
+   - `type: 'compare'` — two photos with a drag-to-compare slider.
+   - `type: 'video'` — a video with playback controls. Set
+     `orientation: 'portrait'` for vertical phone footage.
+3. Delete the placeholder entries once real ones exist.
+
+Items appear on the page in the order they are listed.
+
+## Adding Google reviews
+
+Open `src/reviews.ts`.
+
+1. Set `GOOGLE_REVIEWS_URL` to the Driven Gloss Google reviews link. This
+   switches on the "Read All Reviews on Google" button.
+2. Add each review to `REVIEWS`, copied exactly from Google: name, star
+   rating and text. Do not edit or invent reviews.
+3. Optionally set `GOOGLE_RATING` to the overall rating and review count
+   shown on Google.
+4. Delete the placeholder entries.

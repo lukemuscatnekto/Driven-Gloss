@@ -1,14 +1,13 @@
+import { BeforeAfterGallery } from './components/BeforeAfterGallery'
 import { Contact } from './components/Contact'
 import { CookieConsent } from './components/CookieConsent'
 import { Footer } from './components/Footer'
 import { Hero } from './components/Hero'
 import { HowItWorks } from './components/HowItWorks'
-import { JulyLaunchOffers } from './components/JulyLaunchOffers'
-import { Launch } from './components/Launch'
+import { GoogleReviews } from './components/GoogleReviews'
 import { LocalContact } from './components/LocalContact'
 import { Navbar } from './components/Navbar'
 import { Pricing } from './components/Pricing'
-import { ScrollLeadModal } from './components/ScrollLeadModal'
 import { Services } from './components/Services'
 import { StickyMobileCTA } from './components/StickyMobileCTA'
 import { TrustBadges } from './components/TrustBadges'
@@ -23,20 +22,19 @@ export default function App() {
       <main>
         <Hero />
         <Services />
+        <BeforeAfterGallery />
         <Pricing />
         <WhyDrivenGloss />
         <VisualBreak />
         <HowItWorks />
         <TrustBadges />
-        <JulyLaunchOffers />
-        <Launch />
+        <GoogleReviews />
         <Contact />
         <LocalContact />
       </main>
       <Footer />
       <StickyMobileCTA />
       <WhatsAppButton />
-      <ScrollLeadModal />
       <CookieConsent />
     </>
   )
