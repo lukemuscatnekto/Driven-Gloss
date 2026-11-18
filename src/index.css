@@ -429,8 +429,28 @@
 
   /* Before & after gallery */
   .compare-frame {
-    @apply relative aspect-[4/3] w-full cursor-ew-resize overflow-hidden border border-white/8 bg-charcoal-light select-none;
+    @apply relative w-full cursor-ew-resize overflow-hidden border border-white/8 bg-charcoal-light select-none;
     touch-action: pan-y;
+  }
+
+  .compare-toggle-frame {
+    @apply relative w-full overflow-hidden border border-white/8 bg-charcoal-light select-none;
+  }
+
+  .compare-toggle-switch {
+    @apply absolute top-3 left-3 z-10 flex border border-white/15 bg-charcoal/80 p-0.5 backdrop-blur-sm;
+  }
+
+  .compare-toggle-option {
+    @apply min-h-9 px-3 text-[0.6rem] font-semibold tracking-[0.2em] text-white/70 uppercase transition-colors duration-200 hover:text-white md:text-[0.65rem];
+  }
+
+  .compare-toggle-option-before {
+    @apply bg-white text-charcoal hover:text-charcoal;
+  }
+
+  .compare-toggle-option-after {
+    @apply bg-pink text-white;
   }
 
   .gallery-video-frame {
@@ -443,6 +463,7 @@
 
   @media (max-width: 767px) {
     .compare-frame,
+    .compare-toggle-frame,
     .gallery-video-frame,
     .review-card {
       border-radius: 12px;

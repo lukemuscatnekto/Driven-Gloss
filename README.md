@@ -37,7 +37,11 @@ placeholders in a production build: `VITE_SHOW_PLACEHOLDERS=true npm run build`.
    (see `public/gallery/README.md` for sizes and formats).
 2. Open `src/gallery.ts` and add an entry to `GALLERY_ITEMS`. Copy one of the
    commented examples in that file.
-   - `type: 'compare'` — two photos with a drag-to-compare slider.
+   - `type: 'compare'` — a before photo and an after photo. Add
+     `orientation: 'portrait'` for upright phone photos. By default visitors
+     drag a slider across the photo, which needs both photos taken from the
+     same spot. If they were taken from different angles, add `mode: 'toggle'`
+     so visitors tap Before / After instead.
    - `type: 'video'` — a video with playback controls. Set
      `orientation: 'portrait'` for vertical phone footage.
 3. Delete the placeholder entries once real ones exist.

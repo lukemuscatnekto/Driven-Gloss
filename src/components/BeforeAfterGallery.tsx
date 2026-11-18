@@ -4,6 +4,7 @@ import type { CompareItem, GalleryItem, VideoItem } from '../gallery'
 import { AnimateIn } from './AnimateIn'
 import { Button } from './Button'
 import { CompareSlider } from './CompareSlider'
+import { CompareToggle } from './CompareToggle'
 import { GalleryVideo } from './GalleryVideo'
 import { PageContainer } from './PageContainer'
 import { SectionLabel } from './SectionLabel'
@@ -31,6 +32,8 @@ export function BeforeAfterGallery() {
 
   const comparisons = visibleGalleryItems.filter((item): item is CompareItem => item.type === 'compare')
   const videos = visibleGalleryItems.filter((item): item is VideoItem => item.type === 'video')
+  const hasSlider = comparisons.some((item) => item.mode !== 'toggle')
+  const allPortrait = comparisons.length > 0 && comparisons.every((item) => item.orientation === 'portrait')
 
   return (
     <section
@@ -47,17 +50,35 @@ export function BeforeAfterGallery() {
             </h2>
             <p className="section-copy">
               Real results from Driven Gloss details across Malta.
-              {comparisons.length > 0 && ' Drag the slider to compare.'}
+              {hasSlider && ' Drag the slider to compare.'}
             </p>
           </div>
         </AnimateIn>
 
         {comparisons.length > 0 && (
-          <div className="section-content grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-8 lg:gap-10">
+          <div
+            className={`section-content grid grid-cols-1 gap-8 ${
+              allPortrait ? 'sm:grid-cols-2 lg:grid-cols-3 lg:gap-8' : 'md:grid-cols-2 lg:gap-10'
+            }`}
+          >
             {comparisons.map((item, index) => (
-              <AnimateIn key={item.id} delay={(index % 2) * 80}>
+              <AnimateIn key={item.id} delay={(index % (allPortrait ? 3 : 2)) * 80}>
                 <figure className="m-0">
-                  <CompareSlider before={item.before} after={item.after} title={item.title} />
+                  {item.mode === 'toggle' ? (
+                    <CompareToggle
+                      before={item.before}
+                      after={item.after}
+                      title={item.title}
+                      orientation={item.orientation}
+                    />
+                  ) : (
+                    <CompareSlider
+                      before={item.before}
+                      after={item.after}
+                      title={item.title}
+                      orientation={item.orientation}
+                    />
+                  )}
                   <Caption item={item} />
                 </figure>
               </AnimateIn>

@@ -6,6 +6,7 @@ type CompareSliderProps = {
   after: GalleryImage
   /** Used in the accessible name of the slider. */
   title: string
+  orientation?: 'landscape' | 'portrait'
 }
 
 const KEY_STEP = 5
@@ -19,7 +20,7 @@ function clamp(value: number) {
  * arrow keys on the handle) to move the divider. Vertical swipes still
  * scroll the page on touch devices.
  */
-export function CompareSlider({ before, after, title }: CompareSliderProps) {
+export function CompareSlider({ before, after, title, orientation = 'landscape' }: CompareSliderProps) {
   const frameRef = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState(50)
   const [dragging, setDragging] = useState(false)
@@ -62,7 +63,9 @@ export function CompareSlider({ before, after, title }: CompareSliderProps) {
   return (
     <div
       ref={frameRef}
-      className={`compare-frame ${dragging ? 'compare-frame-dragging' : ''}`}
+      className={`compare-frame ${orientation === 'portrait' ? 'aspect-[3/4]' : 'aspect-[4/3]'} ${
+        dragging ? 'compare-frame-dragging' : ''
+      }`}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={stopDragging}

@@ -28,11 +28,20 @@ export type GalleryImage = {
   alt: string
 }
 
-/** Two photos shown with a drag-to-compare slider. */
+/** A before photo and an after photo of the same job. */
 export type CompareItem = GalleryBase & {
   type: 'compare'
   before: GalleryImage
   after: GalleryImage
+  /** Use 'portrait' for upright phone photos (3:4). Defaults to 'landscape' (4:3). */
+  orientation?: 'landscape' | 'portrait'
+  /**
+   * 'slider' (default): drag a divider across the photo. Best when both photos
+   * were taken from the same spot so they line up.
+   * 'toggle': tap Before / After to switch between them. Use this when the two
+   * photos were taken from different angles.
+   */
+  mode?: 'slider' | 'toggle'
 }
 
 /** A video with playback controls (before/after reel, process video, etc.). */
@@ -50,44 +59,79 @@ export type VideoItem = GalleryBase & {
 
 export type GalleryItem = CompareItem | VideoItem
 
-const PLACEHOLDER_BEFORE: GalleryImage = {
-  src: '/gallery/placeholders/before.svg',
-  alt: 'Placeholder for a before photo',
-}
-
-const PLACEHOLDER_AFTER: GalleryImage = {
-  src: '/gallery/placeholders/after.svg',
-  alt: 'Placeholder for an after photo',
-}
-
 export const GALLERY_ITEMS: GalleryItem[] = [
   // ── Before / after photo comparisons ────────────────────────────────────
-  // Example of a real entry:
-  // {
-  //   type: 'compare',
-  //   id: 'bmw-3-series-interior',
-  //   title: 'BMW 3 Series — Deep Detail',
-  //   description: 'Interior deep clean and leather treatment.',
-  //   before: { src: '/gallery/bmw-3-series-before.webp', alt: 'BMW 3 Series interior before detailing' },
-  //   after: { src: '/gallery/bmw-3-series-after.webp', alt: 'BMW 3 Series interior after detailing' },
-  // },
+  // Shown in this order. To add one, copy an entry and change the details.
   {
     type: 'compare',
-    id: 'placeholder-compare-1',
-    title: 'Project title',
-    description: 'Short description of the work carried out.',
-    before: PLACEHOLDER_BEFORE,
-    after: PLACEHOLDER_AFTER,
-    placeholder: true,
+    id: 'vw-interior',
+    title: 'Volkswagen — Interior',
+    orientation: 'portrait',
+    before: {
+      src: '/gallery/vw-interior-before.webp',
+      alt: 'Volkswagen interior before detailing, with mould and dirt on the steering wheel, gear knob and seat',
+    },
+    after: {
+      src: '/gallery/vw-interior-after.webp',
+      alt: 'Volkswagen interior after detailing, with a clean steering wheel, dashboard and seat',
+    },
   },
   {
     type: 'compare',
-    id: 'placeholder-compare-2',
-    title: 'Project title',
-    description: 'Short description of the work carried out.',
-    before: PLACEHOLDER_BEFORE,
-    after: PLACEHOLDER_AFTER,
-    placeholder: true,
+    id: 'boot-spare-wheel-well',
+    title: 'Boot & Spare-Wheel Well',
+    orientation: 'portrait',
+    before: {
+      src: '/gallery/boot-before.webp',
+      alt: 'Car boot and spare-wheel well before detailing, with stains and debris',
+    },
+    after: {
+      src: '/gallery/boot-after.webp',
+      alt: 'Car boot and spare-wheel well after detailing, cleaned',
+    },
+  },
+  {
+    type: 'compare',
+    id: 'toyota-exterior',
+    title: 'Toyota — Exterior',
+    orientation: 'portrait',
+    before: {
+      src: '/gallery/toyota-front-before.webp',
+      alt: 'Silver Toyota front before detailing, with yellowed headlights',
+    },
+    after: {
+      src: '/gallery/toyota-front-after.webp',
+      alt: 'Silver Toyota front after detailing, with clear headlights',
+    },
+  },
+  {
+    type: 'compare',
+    id: 'jeep-avenger-exterior',
+    title: 'Jeep Avenger — Exterior',
+    orientation: 'portrait',
+    before: {
+      src: '/gallery/jeep-exterior-before.webp',
+      alt: 'Black Jeep Avenger before detailing, covered in dust and water spots',
+    },
+    after: {
+      src: '/gallery/jeep-exterior-after.webp',
+      alt: 'Black Jeep Avenger after detailing, with a clean glossy finish',
+    },
+  },
+  {
+    type: 'compare',
+    id: 'jeep-avenger-interior',
+    title: 'Jeep Avenger — Interior',
+    orientation: 'portrait',
+    mode: 'toggle',
+    before: {
+      src: '/gallery/jeep-interior-before.webp',
+      alt: 'Jeep Avenger interior before detailing, with debris on the floor mat and door sill',
+    },
+    after: {
+      src: '/gallery/jeep-interior-after.webp',
+      alt: 'Jeep Avenger interior after detailing, with clean seats, dashboard and carpet mats',
+    },
   },
 
   // ── Videos ──────────────────────────────────────────────────────────────
